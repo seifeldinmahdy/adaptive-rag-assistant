@@ -1,0 +1,513 @@
+{
+  "mode": "offline scripted provider; real compiled LangGraph; NOT live LLM answers",
+  "results": [
+    {
+      "id": 1,
+      "question": "What is retrieval-augmented generation and why are citations useful?",
+      "scripted_options": {},
+      "state": {
+        "question": "What is retrieval-augmented generation and why are citations useful?",
+        "documents": [
+          {
+            "id": "local-test-1",
+            "title": "Fixture",
+            "content": "Relevant test evidence",
+            "source": "fixture.md",
+            "kind": "local"
+          }
+        ],
+        "route": "local",
+        "answer": "A fixture answer [local-test-1].",
+        "draft": "A fixture answer [local-test-1].",
+        "relevant": true,
+        "supported": true,
+        "feedback": "Verified fixture",
+        "search_query": "targeted missing fact",
+        "retry_count": 0,
+        "max_retries": 2,
+        "generation_count": 1,
+        "status": "verified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "retrieve_documents",
+            "detail": "Retrieved 1 local passages."
+          },
+          {
+            "node": "grade_documents",
+            "detail": "Fixture grade"
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Verified fixture"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 2,
+      "question": "How do State, Nodes, and Conditional Edges work in LangGraph?",
+      "scripted_options": {},
+      "state": {
+        "question": "How do State, Nodes, and Conditional Edges work in LangGraph?",
+        "documents": [
+          {
+            "id": "local-test-1",
+            "title": "Fixture",
+            "content": "Relevant test evidence",
+            "source": "fixture.md",
+            "kind": "local"
+          }
+        ],
+        "route": "local",
+        "answer": "A fixture answer [local-test-1].",
+        "draft": "A fixture answer [local-test-1].",
+        "relevant": true,
+        "supported": true,
+        "feedback": "Verified fixture",
+        "search_query": "targeted missing fact",
+        "retry_count": 0,
+        "max_retries": 2,
+        "generation_count": 1,
+        "status": "verified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "retrieve_documents",
+            "detail": "Retrieved 1 local passages."
+          },
+          {
+            "node": "grade_documents",
+            "detail": "Fixture grade"
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Verified fixture"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 3,
+      "question": "How does BM25 differ from dense retrieval?",
+      "scripted_options": {
+        "relevant": false
+      },
+      "state": {
+        "question": "How does BM25 differ from dense retrieval?",
+        "documents": [
+          {
+            "id": "web-test",
+            "title": "Web fixture",
+            "content": "Supplemental test evidence",
+            "source": "https://example.com/evidence",
+            "kind": "web"
+          }
+        ],
+        "route": "local",
+        "answer": "A fixture answer [web-test].",
+        "draft": "A fixture answer [web-test].",
+        "relevant": false,
+        "supported": true,
+        "feedback": "Verified fixture",
+        "search_query": "targeted missing fact",
+        "retry_count": 0,
+        "max_retries": 2,
+        "generation_count": 1,
+        "status": "verified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "retrieve_documents",
+            "detail": "Retrieved 1 local passages."
+          },
+          {
+            "node": "grade_documents",
+            "detail": "Fixture grade"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: How does BM25 differ from dense retrieval? \u2014 1 results; retry 0."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Verified fixture"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 4,
+      "question": "How does a retry limit prevent infinite loops in adaptive RAG?",
+      "scripted_options": {
+        "failures": 1
+      },
+      "state": {
+        "question": "How does a retry limit prevent infinite loops in adaptive RAG?",
+        "documents": [
+          {
+            "id": "local-test-1",
+            "title": "Fixture",
+            "content": "Relevant test evidence",
+            "source": "fixture.md",
+            "kind": "local"
+          },
+          {
+            "id": "web-test",
+            "title": "Web fixture",
+            "content": "Supplemental test evidence",
+            "source": "https://example.com/evidence",
+            "kind": "web"
+          }
+        ],
+        "route": "local",
+        "answer": "A fixture answer [local-test-1].",
+        "draft": "A fixture answer [local-test-1].",
+        "relevant": true,
+        "supported": true,
+        "feedback": "Verified fixture",
+        "search_query": "targeted missing fact",
+        "retry_count": 1,
+        "max_retries": 2,
+        "generation_count": 2,
+        "status": "verified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "retrieve_documents",
+            "detail": "Retrieved 1 local passages."
+          },
+          {
+            "node": "grade_documents",
+            "detail": "Fixture grade"
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: targeted missing fact \u2014 1 results; retry 1."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 2."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Verified fixture"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 5,
+      "question": "Who won the 2026 FIFA World Cup?",
+      "scripted_options": {
+        "route": "web"
+      },
+      "state": {
+        "question": "Who won the 2026 FIFA World Cup?",
+        "documents": [
+          {
+            "id": "web-test",
+            "title": "Web fixture",
+            "content": "Supplemental test evidence",
+            "source": "https://example.com/evidence",
+            "kind": "web"
+          }
+        ],
+        "route": "web",
+        "answer": "A fixture answer [web-test].",
+        "draft": "A fixture answer [web-test].",
+        "relevant": false,
+        "supported": true,
+        "feedback": "Verified fixture",
+        "search_query": "targeted missing fact",
+        "retry_count": 0,
+        "max_retries": 2,
+        "generation_count": 1,
+        "status": "verified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: Who won the 2026 FIFA World Cup? \u2014 1 results; retry 0."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Verified fixture"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 6,
+      "question": "What is the James Webb Space Telescope designed to observe?",
+      "scripted_options": {
+        "route": "web",
+        "failures": 1
+      },
+      "state": {
+        "question": "What is the James Webb Space Telescope designed to observe?",
+        "documents": [
+          {
+            "id": "web-test",
+            "title": "Web fixture",
+            "content": "Supplemental test evidence",
+            "source": "https://example.com/evidence",
+            "kind": "web"
+          }
+        ],
+        "route": "web",
+        "answer": "A fixture answer [web-test].",
+        "draft": "A fixture answer [web-test].",
+        "relevant": false,
+        "supported": true,
+        "feedback": "Verified fixture",
+        "search_query": "targeted missing fact",
+        "retry_count": 1,
+        "max_retries": 2,
+        "generation_count": 2,
+        "status": "verified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: What is the James Webb Space Telescope designed to observe? \u2014 1 results; retry 0."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: targeted missing fact \u2014 1 results; retry 1."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 2."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Verified fixture"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 7,
+      "question": "What exact date was LangGraph version 0.2 released?",
+      "scripted_options": {
+        "relevant": false,
+        "failures": 99
+      },
+      "state": {
+        "question": "What exact date was LangGraph version 0.2 released?",
+        "documents": [
+          {
+            "id": "web-test",
+            "title": "Web fixture",
+            "content": "Supplemental test evidence",
+            "source": "https://example.com/evidence",
+            "kind": "web"
+          }
+        ],
+        "route": "local",
+        "answer": "I could not verify a sufficiently supported answer within the retry limit. Missing fact",
+        "draft": "A fixture answer [web-test].",
+        "relevant": false,
+        "supported": false,
+        "feedback": "Missing fact",
+        "search_query": "targeted missing fact",
+        "retry_count": 2,
+        "max_retries": 2,
+        "generation_count": 3,
+        "status": "unverified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "retrieve_documents",
+            "detail": "Retrieved 1 local passages."
+          },
+          {
+            "node": "grade_documents",
+            "detail": "Fixture grade"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: What exact date was LangGraph version 0.2 released? \u2014 1 results; retry 0."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: targeted missing fact \u2014 1 results; retry 1."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 2."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: targeted missing fact \u2014 1 results; retry 2."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 3."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "id": 8,
+      "question": "Explain BM25 and give the exact title and publication year of the original Okapi TREC-3 paper.",
+      "scripted_options": {
+        "failures": 99
+      },
+      "state": {
+        "question": "Explain BM25 and give the exact title and publication year of the original Okapi TREC-3 paper.",
+        "documents": [
+          {
+            "id": "local-test-1",
+            "title": "Fixture",
+            "content": "Relevant test evidence",
+            "source": "fixture.md",
+            "kind": "local"
+          },
+          {
+            "id": "web-test",
+            "title": "Web fixture",
+            "content": "Supplemental test evidence",
+            "source": "https://example.com/evidence",
+            "kind": "web"
+          }
+        ],
+        "route": "local",
+        "answer": "I could not verify a sufficiently supported answer within the retry limit. Missing fact",
+        "draft": "A fixture answer [local-test-1].",
+        "relevant": true,
+        "supported": false,
+        "feedback": "Missing fact",
+        "search_query": "targeted missing fact",
+        "retry_count": 2,
+        "max_retries": 2,
+        "generation_count": 3,
+        "status": "unverified",
+        "trace": [
+          {
+            "node": "route_question",
+            "detail": "Fixture route"
+          },
+          {
+            "node": "retrieve_documents",
+            "detail": "Retrieved 1 local passages."
+          },
+          {
+            "node": "grade_documents",
+            "detail": "Fixture grade"
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 1."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: targeted missing fact \u2014 1 results; retry 1."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 2."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          },
+          {
+            "node": "web_search",
+            "detail": "Search: targeted missing fact \u2014 1 results; retry 2."
+          },
+          {
+            "node": "generate_answer",
+            "detail": "Generated attempt 3."
+          },
+          {
+            "node": "check_answer",
+            "detail": "Missing fact"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

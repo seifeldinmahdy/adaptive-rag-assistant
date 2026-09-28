@@ -1,0 +1,10 @@
+[
+  {"id": 1, "question": "What is retrieval-augmented generation and why are citations useful?", "intended_path": "local relevant"},
+  {"id": 2, "question": "How do State, Nodes, and Conditional Edges work in LangGraph?", "intended_path": "local relevant"},
+  {"id": 3, "question": "How does BM25 differ from dense retrieval?", "intended_path": "local relevant"},
+  {"id": 4, "question": "How does a retry limit prevent infinite loops in adaptive RAG?", "intended_path": "local relevant"},
+  {"id": 5, "question": "Who won the 2026 FIFA World Cup?", "intended_path": "direct web"},
+  {"id": 6, "question": "What is the James Webb Space Telescope designed to observe?", "intended_path": "direct web"},
+  {"id": 7, "question": "What exact date was LangGraph version 0.2 released?", "intended_path": "local irrelevant then web"},
+  {"id": 8, "question": "Explain BM25 and give the exact title and publication year of the original Okapi TREC-3 paper.", "intended_path": "local partial then checker retry"}
+]
